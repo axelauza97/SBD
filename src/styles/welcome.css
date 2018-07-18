@@ -1,0 +1,35 @@
+
+
+.root{
+    -fx-background-image: url("/image/fondoData.png");
+}
+#nameData{
+    -fx-fill:black;
+    -fx-font:70px "Chicle-Regular";
+}
+#nameGroup{
+    -fx-fill:black;
+    -fx-font:24px"Chewy-Regular";
+}
+.label{
+    -fx-background-color:grey;
+    -fx-border-color: white 8px groove;
+    -fx-font:20px "Chewy-Regular";
+    -fx-text-fill:black; 
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.button {
+    -fx-background-color:none;
+    -fx-font:25px "Chewy-Regular";
+    -fx-text-fill:black;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+.button:focused{
+    -fx-background-color:grey;
+    -fx-text-fill:#000;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
