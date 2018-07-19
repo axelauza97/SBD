@@ -7,7 +7,7 @@ package Vistas;
 
 import Usuarios.Usuario;
 import Servicios.Conexion;
-import Servicios.Validar;
+import Servicios.Query;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -61,12 +61,7 @@ public class VLogin {
      * Constructor de la clase
      */
     public VLogin() {
-        //root=new Pane();
-        //PaneUsu=new HBox();
-        //PaneCont=new HBox();
-        
-        
-        //PaneConteiner=new VBox();
+
         Font.loadFont(VLogin.class.getResource("/fonts/Chicle-Regular.ttf").toExternalForm(),10);
         Font.loadFont(VLogin.class.getResource("/fonts/Chewy-Regular.ttf").toExternalForm(),10);
         btn_ing=new Button("Ingresar");
@@ -80,7 +75,6 @@ public class VLogin {
         SetupButtons();
         ConfigButtons();
         
-        //root.setCenter(PaneConteiner);
         
         
         
@@ -110,31 +104,8 @@ private void SetupButtons(){
         lbl_logo.setLayoutX(300);
         lbl_logo.setLayoutY(200);
         
-        
-        /*
-        PaneUsu.getChildren().addAll(lbl_usu,txt_usu);
-        PaneUsu.setPrefSize(100, 100);
-        PaneUsu.setSpacing(10);
-        lbl_usu.setAlignment(Pos.CENTER);
-        txt_usu.setAlignment(Pos.CENTER);
-       
-        PaneCont.getChildren().addAll(lbl_cont,txt_cont);
-        PaneCont.setPrefSize(100, 100);
-        PaneCont.setSpacing(10);
-        lbl_cont.setAlignment(Pos.CENTER);
-        txt_cont.setAlignment(Pos.CENTER);
-        */
         root.getChildren().addAll(nameData,lbl_usu,txt_usu,lbl_cont,txt_cont,btn_ing, lbl_logo);
-        //PaneConteiner.getChildren().addAll(PaneUsu,PaneCont,btn_ing);
-        /*
-        btn_ing.setPrefSize(100,50);
-        btn_ing.setAlignment(Pos.CENTER);
         
-        
-        PaneConteiner.setSpacing(30);
-        PaneConteiner.setPrefSize(500, 500);
-        PaneConteiner.setAlignment(Pos.CENTER);
-        */
         
     }
 private void ConfigButtons(){
@@ -148,15 +119,6 @@ private void ConfigButtons(){
 }
 private void ingreso(ActionEvent e) throws ParseException,IOException, SQLException, ClassNotFoundException{
     Connection con=Conexion.obtener();
-    /*if(Validar.seleccion(con, txt_usu.getText(), txt_cont.getText()))
-    {
-        System.out.println("INICIO DE SESION EXITOSO");    
-        Tecnicentro ini=new Tecnicentro();
-        ini.CambioInicio();
-    }
-    else
-        System.out.println("Usuario o clave incorrecto");
-    }*/
     Usuario usuario=new Usuario(txt_usu.getText());
     if(usuario.Login(con, txt_cont.getText()))
     {

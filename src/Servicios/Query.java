@@ -15,12 +15,12 @@ import java.sql.Statement;
  *
  * @author Axel
  */
-public class Validar {
+public class Query {
     
-    public static boolean seleccion(Connection conexion, String usuario,String contr) throws SQLException{
+    public static boolean ejecutar(Connection conexion, String query) throws SQLException{
     try{
          Statement consulta = conexion.createStatement();
-         ResultSet rs = consulta.executeQuery("SELECT id FROM Empleados where usuario='"+usuario+"' and contrasena='"+contr+"'");
+         ResultSet rs = consulta.executeQuery(query);
          while(rs.next()){
             return true; 
             //System.out.println("Valores "+ rs.getString(1));
