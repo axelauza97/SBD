@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import Usuarios.Usuario;
 import Servicios.Conexion;
 import Servicios.Validar;
 import java.io.IOException;
@@ -147,7 +148,17 @@ private void ConfigButtons(){
 }
 private void ingreso(ActionEvent e) throws ParseException,IOException, SQLException, ClassNotFoundException{
     Connection con=Conexion.obtener();
-    if(Validar.seleccion(con, txt_usu.getText(), txt_cont.getText()))
+    /*if(Validar.seleccion(con, txt_usu.getText(), txt_cont.getText()))
+    {
+        System.out.println("INICIO DE SESION EXITOSO");    
+        Tecnicentro ini=new Tecnicentro();
+        ini.CambioInicio();
+    }
+    else
+        System.out.println("Usuario o clave incorrecto");
+    }*/
+    Usuario usuario=new Usuario(txt_usu.getText());
+    if(usuario.Login(con, txt_cont.getText()))
     {
         System.out.println("INICIO DE SESION EXITOSO");    
         Tecnicentro ini=new Tecnicentro();
