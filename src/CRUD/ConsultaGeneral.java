@@ -5,13 +5,23 @@
  */
 package CRUD;
 
+import Objetos.Articulo;
+import Servicios.Query;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 /**
  *
  * @author Axel
  */
-public class ConsultaGeneral {
+public class ConsultaGeneral{
     
-    public void Articulo(){};
+    public ArrayList<Articulo> Articulo(Connection conexion, String query) throws SQLException{
+        
+        return(Query.DevolucionArticulo(conexion, query));
+    };
+    
     public void ServicioArticulo(){};
     public void ServicioMante(){};
     public void Cliente(){};
